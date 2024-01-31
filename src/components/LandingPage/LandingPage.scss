@@ -1,0 +1,260 @@
+.top-nav-container {
+  border-bottom: 1px solid #c2d2eb;
+
+  img {
+    width: 5rem;
+    height: auto;
+    cursor: pointer;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.landing-banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 5rem;
+  padding-bottom: 7rem;
+
+  h1 {
+    text-align: center;
+    font-weight: 700;
+  }
+  button {
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+.dashboard-view {
+  position: relative;
+  margin-bottom: 10rem;
+
+  &--tablet {
+    display: block;
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  &--phone {
+    position: absolute;
+    bottom: -13%;
+    right: 15%;
+    width: 28%;
+  }
+}
+
+.features {
+  padding-top: 3rem;
+
+  &-container {
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr;
+    grid-gap: 1rem;
+    align-items: center;
+
+    &-items--left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      img {
+        display: block;
+        width: 4rem;
+      }
+
+      h6 {
+        font-weight: 700;
+        margin-top: 0.5rem;
+      }
+
+      p {
+        text-align: right;
+      }
+    }
+
+    &-items--right {
+      img {
+        display: block;
+        width: 4rem;
+      }
+      h6 {
+        font-weight: 700;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    &-container {
+      grid-template-columns: 1fr 1fr;
+
+      &-img {
+        display: none;
+      }
+    }
+  }
+}
+
+.about-container {
+  background-image: url(../../assets/images/bg-layer.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 2rem 0;
+
+  &-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    align-items: center;
+
+    &-ceo-image {
+      width: 3.5rem;
+      height: 3.5rem;
+      object-fit: cover;
+    }
+
+    &-ceo-designation {
+      margin-top: -0.5rem;
+    }
+  }
+
+  &-secondary {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding-top: 2rem;
+
+    &-items {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &--quantity {
+        color: #0052cc;
+        font-weight: 800;
+        font-size: 1.5rem;
+        margin-bottom: -0.2rem;
+        margin-top: 0.2rem;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    &-main {
+      grid-template-columns: 1fr;
+
+      .section-intro,
+      .section-header {
+        text-align: center;
+      }
+    }
+
+    &-secondary {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+.faq-container {
+  background-image: url(../../assets/images/FAQ.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 2rem 0;
+
+  .accordion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    align-items: start;
+    margin-top: 2rem;
+
+    --bs-accordion-active-bg: none;
+
+    &-header {
+      button {
+        font-weight: 700;
+        border-radius: 5px;
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+
+    &-item {
+      border-radius: 5px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .accordion {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.testimonial-teams {
+  padding: 3rem 0;
+
+  &-logos {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    img {
+      width: 6rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.footer {
+  padding: 3rem 0;
+  background-color: #0d3166;
+  color: #fff;
+
+  &-logo {
+    width: 7.5rem;
+  }
+
+  &-description {
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  &-social-logo {
+    display: flex;
+    width: 75%;
+    justify-content: center;
+    padding: 1rem 0;
+    margin: 0 auto;
+
+    img {
+      width: 2.5rem;
+      height: 2.5rem;
+      cursor: pointer;
+
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+  }
+  &-copyright {
+    text-align: center;
+
+    span {
+      color: #f60e0e;
+    }
+  }
+
+  @media (max-width: 576px) {
+    &-description {
+      width: 100%;
+    }
+  }
+}

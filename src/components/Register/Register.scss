@@ -1,0 +1,41 @@
+.registration {
+  background-color: #fff;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding: 2rem 5rem;
+  border-radius: 10px;
+  color: #4e4e4e;
+  text-align: left;
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #e1e1e1;
+    transition: border 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-bottom: 2px solid #e1e1e1;
+    }
+  }
+
+  select {
+    width: 100%;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #e1e1e1;
+    color: inherit;
+    padding-bottom: 0.5rem;
+  }
+
+  .primary-btn {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  @media (max-width: 576px) {
+    padding: 2rem;
+  }
+}

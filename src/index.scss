@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Manrope:wght@200..800&family=Montserrat:wght@300;400;800&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,800;1,900&family=Public+Sans&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.app {
+  background-image: url(./assets/images/bg-layer.png);
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: 100% 100vh;
+}
+
+.primary-btn {
+  background-color: #0052cc;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 0.1rem 1rem;
+  border-radius: 5px;
+}
+
+.secondary-btn {
+  background-color: transparent;
+  color: #0052cc;
+  border: 1px solid #0052cc;
+  padding: 0.1rem 1rem;
+  border-radius: 5px;
+  box-shadow: #0052cc 3px 3px;
+}
+
+.section-header {
+  font-weight: 700;
+}
+.section-intro {
+  color: #0052cc;
+}
+
+// media queries
+@media (max-width: 992px) {
+  .app {
+    background-size: 100% 85vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    background-size: 100% 70vh;
+  }
+}

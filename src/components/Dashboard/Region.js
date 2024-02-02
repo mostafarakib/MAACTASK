@@ -9,12 +9,14 @@ export default function Region() {
   const dispatch = useDispatch();
   const [regionName, setRegionName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [displayQuantity, setDisplayQuantity] = useState(10);
+  const [totalRegion, setTotalRegion] = useState(0);
 
   useEffect(() => {
     const fetchRegions = async () => {
       try {
         const response = await fetch(
-          "https://staging-api.erpxbd.com/api/v1/region/20/1",
+          `https://staging-api.erpxbd.com/api/v1/region/${displayQuantity}/1`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -24,13 +26,14 @@ export default function Region() {
 
         const data = await response.json();
         dispatch(setRegions(data.region));
+        setTotalRegion(data.length);
       } catch (error) {
         console.error("Error fetching regions;", error);
       }
     };
 
     fetchRegions();
-  }, [dispatch]);
+  }, [dispatch, displayQuantity]);
 
   const handleCreateRegion = async (e) => {
     e.preventDefault();
@@ -93,12 +96,47 @@ export default function Region() {
             </p>
           </div>
         ) : (
-          <div>
-            <ul>
-              {regions.map((region) => (
-                <li key={region._id}>{region.name}</li>
-              ))}
-            </ul>
+          <div className="region-list">
+            <div className="region-list-filter">
+              <input
+                className="region-search-input"
+                type="search"
+                placeholder="Search..."
+              />
+              <select
+                onChange={(e) => setDisplayQuantity(parseInt(e.target.value))}
+              >
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value={totalRegion}>{totalRegion}</option>
+              </select>
+            </div>
+            <table className="table">
+              <thead>
+                <tr>
+                  <th scope="col">
+                    <input type="checkbox" />
+                  </th>
+                  <th scope="col">Serial No.</th>
+                  <th scope="col">Region</th>
+                </tr>
+              </thead>
+              <tbody>
+                {regions.map((region, index) => (
+                  <tr key={region._id}>
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td>{index + 1}</td>
+                    <td>{region.name}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         )}
       </div>

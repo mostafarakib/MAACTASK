@@ -1,7 +1,7 @@
 .top-nav-container {
   border-bottom: 1px solid #c2d2eb;
 
-  img {
+  &-logo {
     width: 5rem;
     height: auto;
     cursor: pointer;
@@ -9,6 +9,17 @@
   a {
     text-decoration: none;
     color: inherit;
+  }
+
+  &-user-image {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+  }
+
+  .dropdown-toggle {
+    border: none;
+    background: none;
   }
 }
 

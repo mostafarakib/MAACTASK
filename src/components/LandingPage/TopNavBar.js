@@ -4,6 +4,7 @@ import logo from "../../assets/images/FieldX.png";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../redux/userSlice";
+import dummyUserImage from "../../assets/images/sample-photo.jpeg";
 
 export default function TopNavBar() {
   const userData = useSelector(selectUser);
@@ -11,35 +12,29 @@ export default function TopNavBar() {
     <div className="top-nav-container py-2">
       <div className="container d-flex justify-content-between align-items-center">
         <Link to="/">
-          <img src={logo} alt="logo" />
+          <img className="top-nav-container-logo" src={logo} alt="logo" />
         </Link>
         <div>
           {userData ? (
-            <div class="dropdown">
+            <div className="dropdown">
               <button
-                class="btn btn-white dropdown-toggle"
+                className="dropdown-toggle"
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Dropdown button
+                <img
+                  className="top-nav-container-user-image"
+                  src={
+                    userData.image.length < 5 ? dummyUserImage : userData.image
+                  }
+                  alt="user"
+                />
               </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="#">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
+              <ul className="dropdown-menu">
+                <li className="dropdown-item fw-bold">{userData.name}</li>
+                <li className="dropdown-item">{userData.email}</li>
+                <li className="dropdown-item">Role: {userData.role}</li>
               </ul>
             </div>
           ) : (
